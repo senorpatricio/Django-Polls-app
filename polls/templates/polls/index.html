@@ -1,0 +1,18 @@
+{% if latest_question_list %}
+	<ul>
+		{% for question in latest_question_list %}
+		<!-- the below statement calls a template. this method will allow you to change out templates easily and in one place rather than hardcoding it in.  '{% url %}' is a template tag -->
+		<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}	
+	<p>No polls are available</p>
+{% endif %}
+
+
+<!-- 
+	django admin
+	http://127.0.0.1:8000/admin/
+	user: admin
+	password: qwert12345
+-->
